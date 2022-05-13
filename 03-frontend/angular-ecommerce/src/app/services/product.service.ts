@@ -16,6 +16,14 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getProduct(theProductId: number): Observable<Product> {
+
+    // Need to build URL based on product id
+    const productUrl = `${this.baseUrl}/${theProductId}`;
+
+    return this.httpClient.get<Product>(productUrl);
+  }
+
   // Returns an observable
   // Maps the JSON data from Spring Data REST to product array
   getProductList(theCategoryId: number): Observable<Product[]> {
@@ -45,6 +53,7 @@ export class ProductService {
       map(response => response._embedded.productCategory)
     );
   }
+
 
 }
 

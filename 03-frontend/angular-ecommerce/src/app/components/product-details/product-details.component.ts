@@ -11,7 +11,7 @@ import { ActivatedRoute } from "@angular/router";
 export class ProductDetailsComponent implements OnInit {
 
   // @ts-ignore
-  product: Product;
+  product: Product = new Product();
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) { }

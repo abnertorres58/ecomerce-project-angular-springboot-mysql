@@ -24,4 +24,11 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    console.log("Handling the submit button");
+    // @ts-ignore
+    console.log(this.checkoutFormGroup.get('customer').value);
+    // @ts-ignore
+    console.log("The mail address is " + this.checkoutFormGroup.get('customer').value.email);
+  }
 }

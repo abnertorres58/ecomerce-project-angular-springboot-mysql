@@ -96,9 +96,16 @@ export class CheckoutComponent implements OnInit {
       console.log(event);
       // @ts-ignore
       this.checkoutFormGroup.controls.billingAddress.setValue(this.checkoutFormGroup.controls.shippingAddress.value);
+
+      //  Bug fix for states
+      this.billingAddressStates = this.shippingAddressStates;
+
     } else {
       // @ts-ignore
       this.checkoutFormGroup.controls.billingAddress.reset();
+
+      //  Bug fix for states
+      this.billingAddressStates = [];
     }
   }
 
@@ -108,6 +115,12 @@ export class CheckoutComponent implements OnInit {
     console.log(this.checkoutFormGroup.get('customer').value);
     // @ts-ignore
     console.log("The mail address is " + this.checkoutFormGroup.get('customer').value.email);
+
+    // @ts-ignore
+    console.log("The shipping address country is " + this.checkoutFormGroup.get('shippingAddress').value.country.name);
+
+    // @ts-ignore
+    console.log("The shipping address state is " + this.checkoutFormGroup.get('shippingAddress').value.state.name);
   }
 
 
@@ -150,8 +163,8 @@ export class CheckoutComponent implements OnInit {
     // @ts-ignore
     const countryName = formGroup.value.country.name;
 
-    console.log(`{formGroupName} country code: ${countryCode}`);
-    console.log(`{formGroupName} country name: ${countryName}`);
+    console.log(`${formGroupName} country code: ${countryCode}`);
+    console.log(`${formGroupName} country name: ${countryName}`);
 
     this.shopFormService.getStates(countryCode).subscribe(
       data => {

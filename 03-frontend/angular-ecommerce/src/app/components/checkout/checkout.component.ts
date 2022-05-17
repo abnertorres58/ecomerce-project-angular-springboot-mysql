@@ -46,6 +46,19 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
+
+  // @ts-ignore
+  copyShippingAddressToBillingAddress(event) {
+    if(event.target.checked) {
+      console.log(event);
+      // @ts-ignore
+      this.checkoutFormGroup.controls.billingAddress.setValue(this.checkoutFormGroup.controls.shippingAddress.value);
+    } else {
+      // @ts-ignore
+      this.checkoutFormGroup.controls.billingAddress.reset();
+    }
+  }
+
   onSubmit() {
     console.log("Handling the submit button");
     // @ts-ignore
@@ -53,4 +66,6 @@ export class CheckoutComponent implements OnInit {
     // @ts-ignore
     console.log("The mail address is " + this.checkoutFormGroup.get('customer').value.email);
   }
+
+
 }

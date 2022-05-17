@@ -146,14 +146,26 @@ export class CheckoutComponent implements OnInit {
 
     // @ts-ignore
     const countryCode = formGroup.value.country.code;
+
     // @ts-ignore
     const countryName = formGroup.value.country.name;
 
-    console.log(`${formGroupName} country code: ${countryCode}`);
-    console.log(`${formGroupName} country name: ${countryName}`);
+    console.log(`{formGroupName} country code: ${countryCode}`);
+    console.log(`{formGroupName} country name: ${countryName}`);
 
     this.shopFormService.getStates(countryCode).subscribe(
+      data => {
 
+        if(formGroupName === 'shippingAddress') {
+          this.shippingAddressStates = data;
+        } else {
+          this.billingAddressStates = data;
+        }
+
+      //  Select first Item by default
+        // @ts-ignore
+        formGroup.get('state').setValue(data[0]);
+      }
     );
   }
 }

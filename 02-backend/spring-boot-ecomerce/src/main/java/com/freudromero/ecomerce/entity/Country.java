@@ -2,6 +2,7 @@ package com.freudromero.ecomerce.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -25,5 +26,6 @@ public class Country {
 
     // TODO: Set up one to many with states
     @OneToMany(mappedBy = "country")
+    @JsonIgnore
     private List<State> states;
 }

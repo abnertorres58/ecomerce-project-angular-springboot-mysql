@@ -5,6 +5,8 @@ import {Country} from "../../common/country";
 import {State} from "../../common/state";
 import {ShopValidators} from "../../validators/shop-validators";
 import {CartService} from "../../services/cart.service";
+import {CheckoutService} from "../../services/checkout.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-checkout',
@@ -29,7 +31,9 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private shopFormService: ShopFormService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private checkoutService: CheckoutService,
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -176,18 +180,27 @@ export class CheckoutComponent implements OnInit {
 
     if(this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
+      return;
     }
 
-    // @ts-ignore
-    console.log(this.checkoutFormGroup.get('customer').value);
-    // @ts-ignore
-    console.log("The mail address is " + this.checkoutFormGroup.get('customer').value.email);
+    // Set up order
 
-    // @ts-ignore
-    console.log("The shipping address country is " + this.checkoutFormGroup.get('shippingAddress').value.country.name);
+    // Get cart items
 
-    // @ts-ignore
-    console.log("The shipping address state is " + this.checkoutFormGroup.get('shippingAddress').value.state.name);
+    // create orderItems form CartItems
+
+    // Set up purchase
+
+    // Populate purchase - customer
+
+    // Populate purchase - shipping address
+
+    // Populate purchase - billing address
+
+    // Populate purchase - order and orderItems
+
+    // Call REST API via the checkoutService
+
   }
 
 

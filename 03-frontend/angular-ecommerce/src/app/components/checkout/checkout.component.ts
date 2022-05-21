@@ -7,6 +7,9 @@ import {ShopValidators} from "../../validators/shop-validators";
 import {CartService} from "../../services/cart.service";
 import {CheckoutService} from "../../services/checkout.service";
 import {Router} from "@angular/router";
+import {Order} from "../../common/order";
+import {OrderItem} from "../../common/order-item";
+import {Purchase} from "../../common/purchase";
 
 @Component({
   selector: 'app-checkout',
@@ -184,22 +187,67 @@ export class CheckoutComponent implements OnInit {
     }
 
     // Set up order
+    let order = new Order();
+    order.totalPrice = this.totalPrice;
+    order.totalQuantity = this.totalQuantity;
 
     // Get cart items
+    const cartItems = this.cartService.cartItems;
 
     // create orderItems form CartItems
+    // - long way
+    /*
+    let orderItems: OrderItem[] = [];
+    for(let i=0; i < cartItems.length; i++) {
+      orderItems[i] = new OrderItem(cartItems[i]);
+    }
+     */
+
+    // - short way of doing the same thing
+    let orderItems: OrderItem[] = cartItems.map(tempCartItem => new OrderItem(tempCartItem));
 
     // Set up purchase
+    let purchase = new Purchase();
 
     // Populate purchase - customer
+    purchase.customer = this.checkoutFormGroup.controls['customer'].value;
+
 
     // Populate purchase - shipping address
+    purchase.shippingAddress = this.checkoutFormGroup.controls['shippingAddress'].value;
+    const shippingState: State = JSON.parse(JSON.stringify(purchase.shippingAddress.state));
+    const shippingCountry: State = JSON.parse(JSON.stringify(purchase.shippingAddress.country));
+    purchase.shippingAddress.state = shippingState.name;
+    purchase.shippingAddress.country = shippingCountry.name;
 
     // Populate purchase - billing address
+    purchase.billingAddress = this.checkoutFormGroup.controls['billingAddress'].value;
+    const billingState: State = JSON.parse(JSON.stringify(purchase.billingAddress.state));
+    const billingCountry: State = JSON.parse(JSON.stringify(purchase.billingAddress.country));
+    purchase.billingAddress.state = billingState.name;
+    purchase.billingAddress.country = billingCountry.name;
 
     // Populate purchase - order and orderItems
+    purchase.order = order;
+    purchase.orderItems = orderItems;
 
     // Call REST API via the checkoutService
+    this.checkoutService.placeOrder(purchase).subscribe({
+        // next: success/happy
+        next: response => {
+
+          alert(`Your order has been received>\nOrder tracking number: ${response.orderTrackingNumber}`);
+
+          // reset cart
+          this.resetCart();
+
+        },
+        // error: error/exception
+        error: err => {
+          alert(`There was an error: ${err.message}`);
+        }
+      }
+    );
 
   }
 
@@ -262,4 +310,17 @@ export class CheckoutComponent implements OnInit {
     );
   }
 
+  private resetCart() {
+
+    // Reset cart data
+    this.cartService.cartItems = [];
+    this.cartService.totalPrice.next(0);
+    this.cartService.totalQuantity.next(0);
+
+    // Reset the form
+    this.checkoutFormGroup.reset();
+
+    // Navigate back to the products page
+    this.router.navigateByUrl("/products");
+  }
 }

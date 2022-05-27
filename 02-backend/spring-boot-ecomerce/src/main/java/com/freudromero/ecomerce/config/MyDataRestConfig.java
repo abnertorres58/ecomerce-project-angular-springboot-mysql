@@ -1,9 +1,6 @@
 package com.freudromero.ecomerce.config;
 
-import com.freudromero.ecomerce.entity.Country;
-import com.freudromero.ecomerce.entity.Product;
-import com.freudromero.ecomerce.entity.ProductCategory;
-import com.freudromero.ecomerce.entity.State;
+import com.freudromero.ecomerce.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -42,6 +39,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
         disableHttpMethods(Country.class, config, theUnsupportedActions);
         disableHttpMethods(State.class, config, theUnsupportedActions);
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
 
 
         // Call an internal helper method

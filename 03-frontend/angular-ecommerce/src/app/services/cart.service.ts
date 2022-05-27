@@ -12,7 +12,7 @@ export class CartService {
   totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   totalQuantity: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  // Reference to web browser's session storage
+  // Reference to web browser's session or local storage
   storage: Storage = sessionStorage;
   // storage: Storage = localStorage;
 

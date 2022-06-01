@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   // Add the custom environment config
-  fredsshopApiUrl: "https://localhost:8443/api"
+  fredsshopApiUrl: "https://localhost:8443/api",
+  stripePublishableKey: "pk_test_51L5IuWANMeQDotHMyiGAWDvGn1NlHrMMG7BFN4p53pCSfv89Quxjbj51NdlkwCEAxXfQdCssfnsQGmmuZqcSB0Ya00DMWs8wYz"
 
 };
 

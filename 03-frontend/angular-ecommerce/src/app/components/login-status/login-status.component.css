@@ -9,11 +9,11 @@ Change border to 10px
   right:10px;
   min-width:85px;
   color:#fff;
-  border:10px solid #205b8d;
+  border:10px solid #804867;
   -webkit-border-radius:3px;
   -moz-border-radius:3px;
   border-radius:43px;
-  background:#205b8d
+  background:#804867
 }
 
 /*
@@ -22,6 +22,7 @@ Rename as .login-status-header
 */
 
 .login-status-header {
+  margin-top: 12px;
   display:-webkit-box;
   display:-webkit-flex;
   display:-moz-box;
@@ -45,6 +46,10 @@ Rename as .login-status-user-info
   -webkit-transition:all .5s ease;
   -o-transition:all .5s ease;
   -moz-transition:all .5s ease;
-  transition:all .5s ease
+  transition:all .5s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
 }
 

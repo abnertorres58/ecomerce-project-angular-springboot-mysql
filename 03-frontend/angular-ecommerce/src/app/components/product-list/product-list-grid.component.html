@@ -16,7 +16,7 @@
             </a>
 
             <div class="price">{{ tempProduct.unitPrice | currency: 'USD'}}</div>
-            <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Add to card</button>
+            <button (click)="addToCart(tempProduct)" class="btn btn-secondary btn-sm">Add to card</button>
           </div>
 
         </div>
@@ -52,7 +52,7 @@
               <div class="col-md-3 mt-2" style="text-align: right;">
                 <span class="mr-2">Page Size</span>
 
-                <select (change)="updatePageSize($any($event.target).value)">
+                <select (change)="updatePageSize($any($event.target).value)" style="text-align: left">
                   <option>2</option>
                   <option selected="true">5</option>
                   <option>10</option>

@@ -135,7 +135,9 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
  */
 
 .header-desktop{
-  background: #173747;
+  display: flex;
+  align-items: center;
+  background: #4e263e;
   -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
   -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
   box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
@@ -143,21 +145,22 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
   top:0;
   right:0;
   left:200px;
-  height:75px;
+  min-height:75px;
   z-index:3
 }
 
 .header-desktop .section-content{
   overflow:visible;
-  position:absolute;
+/*   position:absolute; */
   top:50%;
   left:0;
   right:0;
-  -webkit-transform:translateY(-50%);
+  margin-bottom: 12px;
+/*   -webkit-transform:translateY(-50%);
   -moz-transform:translateY(-50%);
   -ms-transform:translateY(-50%);
   -o-transform:translateY(-50%);
-  transform:translateY(-50%)
+  transform:translateY(-50%) */
 }
 
 .header-wrap{
@@ -245,20 +248,28 @@ input.au-input.au-input-xl{
 .cart-area i{
   font-size:22px;
   float:left;
-  margin-top:16px;
   color:#fff;
   margin-left:15px
 }
 
+.totalandicon {
+  display: flex;
+
+  white-space:nowrap;
+  align-items: baseline;
+  margin-top: 12px;
+}
+
+
 .total{
-  background:#205b8d;
+  background:#804867;
   line-height:43px;
   color:#fff;
   border-radius:30px;
-  border:1px solid #0da8e4;
+  border:1px solid #b492a9;
   float:left;
-  margin-top:7px;
-  padding-left:17px
+  padding-left:17px;
+  white-space:nowrap;
 }
 
 .total span{
@@ -272,6 +283,7 @@ input.au-input.au-input-xl{
 }
 
 .form-header{
+  margin-top:12px;
   display:-webkit-box;
   display:-webkit-flex;
   display:-moz-box;
@@ -284,15 +296,15 @@ input.au-input.au-input-xl{
   right:0;
   min-width:95px;
   color:#fff;
-  border:1px solid #205b8d;
+  border:1px solid #b492a9;
   -webkit-border-radius:3px;
   -moz-border-radius:3px;
   border-radius:43px;
-  background:#205b8d
+  background:#804867
 }
 
 .au-btn-submit:hover{
-  background:#05143f
+  background: #280318
 }
 
 .au-btn-submit>i{
@@ -379,7 +391,7 @@ input.au-input.au-input-xl{
 }
 
 .navbar-sidebar .navbar-list li a:hover{
-  color:#0da8e4
+  color:#A28094FF
 }
 
 /*
@@ -482,7 +494,7 @@ input.au-input.au-input-xl{
   line-height:inherit
 }
 .header-mobile .navbar-mobile .navbar-mobile-list li a:hover{
-  color:#0da8e4
+  color:#A28094FF
 }
 .header-mobile .navbar-mobile .navbar-mobile-list li a>i{
   margin-right:19px
@@ -543,7 +555,7 @@ input.au-input.au-input-xl{
 .price{
   margin:15px 0 0;
   font-weight:800;
-  color:#0da8e4
+  color:#A28094FF
 }
 .product-box h1{
   font-size:18px;
@@ -656,7 +668,7 @@ label.date{
   top:-1px;
   width:9px;
   height:15px;
-  border:solid #0da8e4;
+  border:solid #A28094FF;
   border-width:0 4px 4px 0;
   -webkit-border-radius:2px;
   -moz-border-radius:2px;
@@ -691,7 +703,7 @@ table.table.table-bordered{
   border:1px solid #dee2e6
 }
 table.table.table-bordered th{
-  BACKGROUND:#0da8e4;
+  BACKGROUND:#A28094FF;
   color:#fff;
   font-size:14px;
   padding:7px
@@ -718,7 +730,7 @@ table.table.table-bordered th{
 .price{
   margin:15px 0 0;
   font-weight:800;
-  color:#0da8e4
+  color:#A28094FF
 }
 .detail-section{
   margin-top:60px
@@ -737,11 +749,11 @@ table.table.table-bordered th{
 
 .btn-info{
   color:#fff;
-  background-color:#0da8e4!important;
-  border-color:#0da8e4!important
+  background-color:#7f4867!important;
+  border-color:#7f4867!important
 }
 a.primary-btn{
-  background:#05143f;
+  background: #4e263e;
   padding:7px 20px;
   text-align:center;
   display:inline-block;
@@ -751,7 +763,7 @@ a.primary-btn{
   margin-top:5px
 }
 a.primary-btn:hover{
-  background:#0da8e4;
+  background:#7f4867;
   color:#fff
 }
 
@@ -826,7 +838,7 @@ footer ul li{
     font-size:22px;
     float:left;
     margin-top:16px;
-    color:#205b8d;
+    color:#7f4867;
     margin-left:15px
   }
   .header-mobile .header-mobile-bar{
@@ -876,7 +888,7 @@ footer ul li{
     position:relative;
     top:0;
     left:0;
-    height:80px
+    min-height:80px
   }
   .header-wrap{
     -webkit-box-orient:vertical;
@@ -921,7 +933,7 @@ footer ul li{
     font-size:22px;
     float:left;
     margin-top:16px;
-    color:#205b8d;
+    color:#7f4867;
     margin-left:15px
   }
   .header-wrap2{
@@ -933,6 +945,7 @@ footer ul li{
   }
 }
 
+/*
 
 @media (max-width:767px){
   .au-input-xl{
@@ -972,14 +985,47 @@ footer ul li{
     font-size:22px;
     float:left;
     margin-top:16px;
-    color:#205b8d;
+    color:#7f4867;
     margin-left:15px
   }
-  .footer-pagination{
-    text-align:center
+
+  !*.footer-pagination{*!
+  !*  text-align:center*!
+  !*}*!
+
+  !*======================*!
+  .footer-pagination > li > a
+  {
+    background-color: white;
+    color: #5A4181;
   }
+
+  .footer-pagination > li > a:focus,
+  .footer-pagination > li > a:hover,
+  .footer-pagination > li > span:focus,
+  .footer-pagination > li > span:hover
+  {
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+  }
+
+  .footer-pagination > .active > a
+  {
+    color: white;
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181 !Important;
+  }
+
+  .footer-pagination > .active > a:hover
+  {
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+  }
+
+  !*======================*!
   .product-box{
-    text-align:centerg
+    text-align:center
   }
   .page-container{
     position:relative;
@@ -991,11 +1037,11 @@ footer ul li{
     right:10px;
     min-width:85px;
     color:#fff;
-    border:1px solid #205b8d;
+    border:1px solid #7f4867;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border-radius:0;
-    background:#205b8d
+    background:#7f4867
   }
   input.au-input.au-input-xl{
     border-radius:0!important;
@@ -1011,7 +1057,7 @@ footer ul li{
     font-size:18px;
     float:left;
     margin-top:16px;
-    color:#03a9f4;
+    color: #a28094;
     margin-left:15px
   }
   .total span{
@@ -1024,11 +1070,11 @@ footer ul li{
     margin-left:6px
   }
   .total{
-    background:#205b8d;
+    background:#7f4867;
     line-height:30px;
     color:#fff;
     border-radius:30px;
-    border:1px solid #205b8d;
+    border:1px solid #7f4867;
     float:left;
     margin-top:9px;
     padding-left:12px
@@ -1040,3 +1086,4 @@ footer ul li{
     padding:8px 0
   }
 }
+*/

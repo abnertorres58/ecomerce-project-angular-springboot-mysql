@@ -301,6 +301,7 @@ export class CheckoutComponent implements OnInit {
                 // Place order ... store in MySQL DB Spring Boot REST API
                 this.checkoutService.placeOrder(purchase).subscribe({
                   next: response => {
+                    // TODO Navigate to order page confirmation
                     alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
 
                     // Reset Cart

@@ -945,7 +945,7 @@ footer ul li{
   }
 }
 
-/*
+
 
 @media (max-width:767px){
   .au-input-xl{
@@ -989,11 +989,11 @@ footer ul li{
     margin-left:15px
   }
 
-  !*.footer-pagination{*!
-  !*  text-align:center*!
-  !*}*!
+  .footer-pagination{
+    text-align:center;
+  }
 
-  !*======================*!
+  /*!*======================*!*/
   .footer-pagination > li > a
   {
     background-color: white;
@@ -1023,7 +1023,7 @@ footer ul li{
     border: solid 1px #5A4181;
   }
 
-  !*======================*!
+  /*!*======================*!*/
   .product-box{
     text-align:center
   }
@@ -1086,4 +1086,4 @@ footer ul li{
     padding:8px 0
   }
 }
-*/
+

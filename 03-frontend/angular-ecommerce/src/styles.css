@@ -117,7 +117,7 @@ a,a:hover{
 }
 
 .main-content{
-  padding-top:116px;
+/*   padding-top:116px; */
   min-height:100vh
 }
 
@@ -141,7 +141,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
   -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
   -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
   box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
-  position:fixed;
+/*   position:fixed; */
   top:0;
   right:0;
   left:200px;
@@ -151,6 +151,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
 
 .header-desktop .section-content{
   overflow:visible;
+  padding: 0;
 /*   position:absolute; */
   top:50%;
   left:0;
@@ -169,6 +170,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
   display:-moz-box;
   display:-ms-flexbox;
   display:flex;
+  flex-wrap: wrap;
   -webkit-box-align:center;
   -webkit-align-items:center;
   -moz-box-align:center;
@@ -178,7 +180,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
   -webkit-justify-content:space-between;
   -moz-box-pack:justify;
   -ms-flex-pack:justify;
-  justify-content:space-between
+  justify-content:center;
 }
 
 .header-button{
@@ -856,8 +858,8 @@ footer ul li{
     padding:0
   }
   .page-container{
-    position:relative;
-    top:88px;
+/*     position:relative;
+    top:88px; */
     padding-left:0
   }
   .page-wrapper{
@@ -865,11 +867,11 @@ footer ul li{
     padding-bottom:12vh
   }
   .main-content{
-    padding-top:50px;
+/*     padding-top:50px; */
     padding-bottom:100px
   }
   .cart-area.d-n{
-    display:none
+    /*display:none*/
   }
   .form-header{
     -webkit-box-pack:center;
@@ -975,7 +977,7 @@ footer ul li{
     position:relative;
     top:0;
     left:0;
-    height:80px
+/*     height:80px */
   }
   a.logo img{
     width:110px
@@ -1029,7 +1031,6 @@ footer ul li{
   }
   .page-container{
     position:relative;
-    top:66px;
     padding-left:0
   }
   .au-btn-submit{
@@ -1051,7 +1052,7 @@ footer ul li{
     display:block
   }
   .cart-area.d-n{
-    display:none
+    /*display:none*/
   }
   .cart-area i{
     font-size:18px;

@@ -106,6 +106,8 @@ a,a:hover{
 }
 
 .page-wrapper{
+  display: flex;
+  flex-direction: row;
   overflow:hidden;
   background:#e5e5e5;
   padding-bottom:8vh
@@ -113,7 +115,7 @@ a,a:hover{
 
 .page-container{
   background:#e5e5e5;
-  padding-left:200px
+/*   padding-left:200px */
 }
 
 .main-content{
@@ -136,6 +138,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
 
 .header-desktop{
   display: flex;
+  flex-direction: column;
   align-items: center;
   background: #4e263e;
   -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
@@ -153,8 +156,8 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
   overflow:visible;
   padding: 0;
 /*   position:absolute; */
-  top:50%;
-  left:0;
+/*   top:50%; */
+/*   left:0; */
   right:0;
   margin-bottom: 12px;
 /*   -webkit-transform:translateY(-50%);
@@ -211,7 +214,7 @@ section{
 
 .section-content{
   position:relative;
-  margin:0 auto;
+/*   margin:0 auto; */
   z-index:1
 }
 
@@ -330,12 +333,12 @@ input.au-input.au-input-xl{
 
 .menu-sidebar{
   width:200px;
-  position:fixed;
+/*   position:fixed; */
   left:0;
   top:0;
   bottom:0;
   background:#fff;
-  overflow-y:auto
+/*   overflow-y:auto */
 }
 
 .menu-sidebar .logo{
@@ -887,9 +890,9 @@ footer ul li{
     text-align:center
   }
   .header-desktop{
-    position:relative;
+/*     position:relative; */
     top:0;
-    left:0;
+/*     left:0; */
     min-height:80px
   }
   .header-wrap{

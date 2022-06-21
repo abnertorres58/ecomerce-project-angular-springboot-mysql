@@ -114,6 +114,7 @@ a,a:hover{
 }
 
 .page-container{
+  flex-grow: 1;
   background:#e5e5e5;
 /*   padding-left:200px */
 }

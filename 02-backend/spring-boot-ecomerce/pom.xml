@@ -56,6 +56,7 @@
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -67,6 +68,31 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>prepare</id>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<unzip src="${project.build.directory}/${project.build.finalName}.jar" dest="${project.build.directory}/${project.build.finalName}" />
+								<copy todir="${project.build.directory}/${project.build.finalName}/.ebextensions/" overwrite="false">
+									<fileset dir="./.ebextensions/" includes="**"/>
+								</copy>
+								<zip compress="false" destfile="${project.build.directory}/${project.build.finalName}.jar" basedir="${project.build.directory}/${project.build.finalName}"/>
+								<delete dir="${project.build.directory}/${project.build.finalName}"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>

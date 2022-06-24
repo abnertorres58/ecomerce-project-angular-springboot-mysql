@@ -14,7 +14,7 @@
 	<name>spring-boot-ecomerce</name>
 	<description>Spring Boot e-commerce project</description>
 	<properties>
-		<java.version>12</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/com.stripe/stripe-java -->
@@ -68,6 +68,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 

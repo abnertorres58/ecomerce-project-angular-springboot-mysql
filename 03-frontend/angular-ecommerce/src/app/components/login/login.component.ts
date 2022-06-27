@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       (response) => {
         if (response.status === 'SUCCESS') {
           this.oktaAuth.signInWithRedirect();
+          console.log(this.oktaAuth.signInWithRedirect());
         }
       },
       (error) => {

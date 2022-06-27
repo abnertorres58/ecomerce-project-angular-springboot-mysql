@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.oktaSignin.remove();
-    this.oktaSignin.showSignInAndRedirect({
+    this.oktaSignin.showSignInToGetTokens({
         el: '#okta-sign-in-widget'}, // this name should be same as div tag id in login.component.html
 
       (response) => {
@@ -50,8 +50,11 @@ export class LoginComponent implements OnInit {
         throw error;
       }
     )
-      .catch(err => {
-        throw err;
-      });
+      .then((tokens) => {
+        // Add tokens to storage
+        this.oktaAuth.handleLoginRedirect(tokens);
+      }).catch((err) => {
+      throw err;
+    });
   }
 }

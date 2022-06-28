@@ -18,36 +18,17 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './components/login/login.component';
 
-import { OktaAuth } from '@okta/okta-auth-js';
-import myAppConfig from "./config/my-app-config";
 
-import {
-  OKTA_CONFIG, OktaAuthGuard,
-  OktaAuthModule,
-  OktaCallbackComponent
-} from '@okta/okta-angular';
 
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
-import {AuthInterceptorService} from "./services/auth-interceptor.service";
-
-const oktaConfig = Object.assign({
-  onAuthRequired: (oktaAuth, injector) => {
-    const router = injector.get(Router);
-
-    // Redirect the user to your custom login page
-    router.navigate(['/login']);
-  }
-}, myAppConfig.oidc);
-
-const oktaAuth = new OktaAuth(oktaConfig);
 
 const routes: Routes = [
-  {path: 'order-history', component: OrderHistoryComponent, canActivate: [ OktaAuthGuard ]},
-  {path: 'members', component: MembersPageComponent, canActivate: [ OktaAuthGuard ]},
+  {path: 'order-history', component: OrderHistoryComponent, canActivate: [  ]},
+  {path: 'members', component: MembersPageComponent, canActivate: [  ]},
 
-  {path: 'login/callback', component: OktaCallbackComponent},
+  // {path: 'login/callback', component: OktaCallbackComponent},
   {path: 'login', component: LoginComponent},
 
 
@@ -84,10 +65,11 @@ const routes: Routes = [
     NgbModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    OktaAuthModule
+
   ],
-  providers: [ProductService, { provide: OKTA_CONFIG, useValue: {oktaAuth} },
-              {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
+  providers: [ProductService,
+              // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

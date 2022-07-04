@@ -78,7 +78,7 @@ const routes: Routes = [
     OrderHistoryComponent
   ],
   imports: [
-    RouterModule.forRoot(routes, { useHash: true }),
+    RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     NgbModule,
@@ -86,9 +86,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     OktaAuthModule
   ],
-  providers: [ProductService, { provide: OKTA_CONFIG, useValue: {oktaAuth} },
-              {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
-  bootstrap: [AppComponent],
-  exports: [RouterModule],
+  providers: [ProductService, { provide: OKTA_CONFIG, useValue: { oktaAuth } },
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

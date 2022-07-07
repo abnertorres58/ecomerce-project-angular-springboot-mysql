@@ -1,0 +1,57 @@
+  <div class="page-wrapper">
+
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar">
+      <div class="logo">
+        <a routerLink="/products">
+          <img src="assets/images/logo.png" alt="freudromero" class="img-responsive">
+        </a>
+      </div>
+
+      <app-product-category-menu></app-product-category-menu>
+
+    </aside>
+    <!-- END MENU SIDEBAR-->
+
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+      <!-- HEADER DESKTOP-->
+      <header class="header-desktop">
+<!--        <app-search></app-search>-->
+
+<!--        <app-login-status></app-login-status>-->
+
+<!--        <app-cart-status></app-cart-status>-->
+
+        <div class="section-content section-content-p30">
+          <div class="container-fluid">
+            <div class="header-wrap">
+
+
+              <app-search></app-search>
+
+              <app-login-status></app-login-status>
+
+              <app-cart-status></app-cart-status>
+
+            </div>
+            <div class="account-wrap"></div>
+          </div>
+        </div>
+      </header>
+      <!-- END HEADER DESKTOP-->
+
+
+      <!-- MAIN CONTENT-->
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+  <!-- ENDS PAGE CONTAINER-->
+  <footer>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/freud-romero/">About Us</a></li>
+      <li><a href="https://www.linkedin.com/in/freud-romero/">Contact Us</a></li>
+      <li><a href="https://www.linkedin.com/in/freud-romero/">Help</a></li>
+    </ul>
+  </footer>
